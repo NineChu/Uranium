@@ -1,8 +1,13 @@
 const textArea = document.querySelector("#textArea");
-const buttonClick = document.querySelector("#buttonClick");
+const buttons = {
+  loadCode: document.querySelector("#buttonLoadCode"),
+};
 
-buttonClick.addEventListener('click', (e) => {
-  alert("You've clicked !");
+buttons.loadCode.addEventListener("click", async (e) => {
+  const path = prompt("Write the file relative path:");
+  if (typeof path === "string") {
+    textArea.value = await (await fetch(path)).text();
+  }
   textArea.focus();
 });
 
