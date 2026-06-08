@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,8 +22,29 @@
         </li>
       </ul>
     </nav>
+    <nav class="menu-bar">
+      <ul>
+        <li>
+          <button id="buttonSettings">Configuration</button>
+        </li>
+      </ul>
+    </nav>
     <main>
       <textarea id="textareaEditor" autofocus></textarea>
     </main>
+    <dialog id="dialogSettings">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button id="buttonCloseSettings" class="close">
+          <img src="assets/icons/close.png" alt="close.png" />
+        </button>
+      </div>
+      <div class="inputs">
+        <label>
+          <span>Save text:</span>
+          <input id="inputLocalstorageSetting" type="checkbox" />
+        </label>
+      </div>
+    </dialog>
   </body>
 </html>

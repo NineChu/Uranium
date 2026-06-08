@@ -2,6 +2,7 @@
   --text-color: #ffffffff;
   --background-color: #202020ff;
   --background-color2: #171717ff;
+  --background-backdrop-color: #0000003f;
   --border-color: #404040ff;
   --link-color: #30c0ff;
   --link-hover-color: #3070ff;
@@ -31,10 +32,12 @@ body *:not(script) {
 
 body {
   overflow: hidden;
+  position: relative;
   background: var(--background-color);
   height: 100%;
 
   & h2 {
+    font-weight: bold;
     font-size: 1.5rem;
   }
   & :is(ul, ol) {
@@ -46,12 +49,18 @@ body {
   & a {
     text-decoration: none;
   }
-
+  & :is(button, select) {
+    cursor: pointer;
+  }
   & :is(a, input, button):focus-visible {
     outline: var(--text-color) solid 1px;
   }
 
-  & > nav.navbar {
+  & button.close > img {
+    filter: invert();
+  }
+
+  & > nav {
     border-bottom: 1px solid var(--border-color);
     background: var(--background-color2);
 
@@ -60,24 +69,30 @@ body {
 
       & > li {
         flex: 1;
-
-        & > a {
-          align-items: center;
-
-          &:hover > * {
-            text-decoration: underline;
-            color: var(--link-hover-color);
-          }
-
-          & > * {
-            padding: 1rem;
-            font-weight: bold;
-            color: var(--text-color);
-          }
-        }
       }
     }
   }
+
+  & > nav.navbar > ul > li > a {
+    align-items: center;
+
+    &:hover > * {
+      text-decoration: underline;
+      color: var(--link-hover-color);
+    }
+
+    & > * {
+      padding: 1rem;
+    }
+  }
+  & > nav.menu-bar > ul > li > button {
+    padding: 0.5rem;
+
+    &:hover {
+      background: var(--background-color);
+    }
+  }
+
   & > main {
     flex: 1;
 
@@ -88,6 +103,41 @@ body {
       border-radius: 0.2rem;
       border: 1px solid var(--border-color);
       font-family: monospace;
+    }
+  }
+
+  & > dialog {
+    align-self: center;
+    justify-self: center;
+    border-radius: 0.2rem;
+    border: 1px solid var(--border-color);
+    background: var(--background-color2);
+    padding: 2rem;
+
+    &:not([open]) {
+      display: none;
+    }
+    &::backdrop {
+      background-color: var(--background-backdrop-color);
+    }
+
+    & > .modal-header {
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+    }
+    & button.close {
+      width: 1.2em;
+      font-family: monospace;
+    }
+    & > .inputs {
+      margin-top: 1rem;
+      padding-left: 1rem;
+
+      & > label {
+        flex-direction: row;
+        gap: 0.3rem;
+      }
     }
   }
 }
