@@ -95,11 +95,11 @@ body {
 
   & > main {
     flex: 1;
+    padding: 1rem;
 
     & > textarea {
       resize: none;
       flex: 1;
-      margin: 1rem;
       border-radius: 0.2rem;
       border: 1px solid var(--border-color);
       font-family: monospace;
