@@ -8,31 +8,34 @@
     <title>Uranium</title>
   </head>
   <body>
-    <nav class="navbar">
-      <ul>
-        <li>
-          <a href="https://github.com/NineChu">
-            <h2>NineChu</h2>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/NineChu/Uranium">
-            <h2>Uranium</h2>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <nav class="menu-bar">
-      <ul>
-        <li>
-          <button id="buttonSettings">Configuration</button>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li>
+            <a href="https://github.com/NineChu">
+              <span>NineChu</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/NineChu/Uranium">
+              <span>Uranium</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="menu-bar">
+        <ul>
+          <li>
+            <button id="buttonSettings">Settings</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main>
       <textarea id="textareaEditor" autofocus></textarea>
     </main>
-    <dialog id="dialogSettings" closedBy="any">
+    <!-- #region dialogs -->
+    <dialog id="dialogSettings" closedby="any">
       <div class="modal-header">
         <h2>Settings</h2>
         <button id="buttonCloseSettings" class="close">
@@ -46,5 +49,6 @@
         </label>
       </div>
     </dialog>
+    <!-- #endregion -->
   </body>
 </html>

@@ -68,7 +68,6 @@ body {
   /* #endregion */
 
   /* #region components */
-  /* #region dialog */
   & > dialog {
     align-self: center;
     justify-self: center;
@@ -103,39 +102,38 @@ body {
       }
     }
   }
-  /* #endregion */
 
-  /* #region navbar */
-  & > nav {
+  & > header > nav {
     border-bottom: 1px solid var(--border-color);
     background: var(--background-color2);
 
+    &.navbar > ul > li > a {
+      align-items: center;
+
+      &:hover > * {
+        text-decoration: underline;
+        color: var(--link-hover-color);
+      }
+
+      & > * {
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
+    &.menu-bar > ul > li > button {
+      padding: 0.5rem;
+
+      &:hover {
+        background: var(--background-color);
+      }
+    }
     & > ul {
       flex-direction: row;
 
       & > li {
         flex: 1;
       }
-    }
-  }
-
-  & > nav.navbar > ul > li > a {
-    align-items: center;
-
-    &:hover > * {
-      text-decoration: underline;
-      color: var(--link-hover-color);
-    }
-
-    & > * {
-      padding: 1rem;
-    }
-  }
-  & > nav.menu-bar > ul > li > button {
-    padding: 0.5rem;
-
-    &:hover {
-      background: var(--background-color);
     }
   }
   /* #endregion */
