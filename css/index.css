@@ -1,3 +1,4 @@
+/* #region default */
 :root {
   --text-color: #ffffffff;
   --background-color: #202020ff;
@@ -29,8 +30,10 @@ body *:not(script) {
   font: 1rem "Verdana";
   color: var(--text-color);
 }
+/* #endregion */
 
 body {
+  /* #region generic */
   overflow: hidden;
   position: relative;
   background: var(--background-color);
@@ -55,57 +58,17 @@ body {
   & :is(a, input, button):focus-visible {
     outline: var(--text-color) solid 1px;
   }
+  /* #endregion */
 
+  /* #region page */
+  /* #region classes */
   & button.close > img {
     filter: invert();
   }
+  /* #endregion */
 
-  & > nav {
-    border-bottom: 1px solid var(--border-color);
-    background: var(--background-color2);
-
-    & > ul {
-      flex-direction: row;
-
-      & > li {
-        flex: 1;
-      }
-    }
-  }
-
-  & > nav.navbar > ul > li > a {
-    align-items: center;
-
-    &:hover > * {
-      text-decoration: underline;
-      color: var(--link-hover-color);
-    }
-
-    & > * {
-      padding: 1rem;
-    }
-  }
-  & > nav.menu-bar > ul > li > button {
-    padding: 0.5rem;
-
-    &:hover {
-      background: var(--background-color);
-    }
-  }
-
-  & > main {
-    flex: 1;
-    padding: 1rem;
-
-    & > textarea {
-      resize: none;
-      flex: 1;
-      border-radius: 0.2rem;
-      border: 1px solid var(--border-color);
-      font-family: monospace;
-    }
-  }
-
+  /* #region components */
+  /* #region dialog */
   & > dialog {
     align-self: center;
     justify-self: center;
@@ -140,4 +103,55 @@ body {
       }
     }
   }
+  /* #endregion */
+
+  /* #region navbar */
+  & > nav {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-color2);
+
+    & > ul {
+      flex-direction: row;
+
+      & > li {
+        flex: 1;
+      }
+    }
+  }
+
+  & > nav.navbar > ul > li > a {
+    align-items: center;
+
+    &:hover > * {
+      text-decoration: underline;
+      color: var(--link-hover-color);
+    }
+
+    & > * {
+      padding: 1rem;
+    }
+  }
+  & > nav.menu-bar > ul > li > button {
+    padding: 0.5rem;
+
+    &:hover {
+      background: var(--background-color);
+    }
+  }
+  /* #endregion */
+  /* #endregion */
+
+  & > main {
+    flex: 1;
+    padding: 1rem;
+
+    & > textarea {
+      resize: none;
+      flex: 1;
+      border-radius: 0.2rem;
+      border: 1px solid var(--border-color);
+      font-family: monospace;
+    }
+  }
+  /* #endregion */
 }
