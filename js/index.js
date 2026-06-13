@@ -20,7 +20,7 @@ buttonCloseSettings.addEventListener(`click`, (event) => {
 });
 //#endregion
 
-//#region localstorage
+//#region localStorage
 window.addEventListener(`beforeunload`, (event) => {
   if (inputLocalstorageSetting.checked) {
     localStorage.setItem(`textareaEditor`, textareaEditor.value);
