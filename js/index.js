@@ -8,8 +8,11 @@ const dialogSettings = document.getElementById("dialogSettings");
 /** @type {HTMLButtonElement} */
 const buttonCloseSettings = document.getElementById("buttonCloseSettings");
 /** @type {HTMLInputElement} */
-const inputLocalstorageSetting = document.getElementById("inputLocalstorageSetting");
+const inputSettingSaveText = document.getElementById("inputSettingSaveText");
 //#endregion
+
+/** @type {{ saveText: boolean, editorContent: string }} */
+const settings = JSON.parse(localStorage.getItem(`settings`) || "{}");
 
 //#region dialog
 buttonSettings.addEventListener(`click`, (event) => {
@@ -22,15 +25,19 @@ buttonCloseSettings.addEventListener(`click`, (event) => {
 
 //#region localStorage
 window.addEventListener(`beforeunload`, (event) => {
-  if (inputLocalstorageSetting.checked) {
-    localStorage.setItem(`textareaEditor`, textareaEditor.value);
+  if (inputSettingSaveText.checked) {
+    const settings = {
+      editorContent: textareaEditor.value,
+    };
+
+    localStorage.setItem(`settings`, JSON.stringify(settings));
   } else if (localStorage.length > 0) {
-    localStorage.clear();
+    localStorage.removeItem("settings");
   }
 });
 
-if (localStorage.length > 0) {
-  textareaEditor.value = localStorage.getItem(`textareaEditor`);
-  inputLocalstorageSetting.checked = true;
+if (`editorContent` in settings) {
+  inputSettingSaveText.checked = true;
+  textareaEditor.value = settings.editorContent;
 }
 //#endregion
