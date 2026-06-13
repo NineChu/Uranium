@@ -12,7 +12,8 @@ const inputSettingSaveText = document.getElementById("inputSettingSaveText");
 //#endregion
 
 /** @type {{ saveText: boolean, editorContent: string }} */
-const settings = JSON.parse(localStorage.getItem(`settings`) || "{}");
+
+const settings = JSON.parse(localStorage.getItem(`settings`)) || {};
 
 //#region dialog
 buttonSettings.addEventListener(`click`, (event) => {
