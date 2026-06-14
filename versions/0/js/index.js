@@ -11,9 +11,6 @@ const buttonCloseSettings = document.getElementById("buttonCloseSettings");
 const inputSettingSaveText = document.getElementById("inputSettingSaveText");
 //#endregion
 
-/** @type {{ saveText: boolean, editorContent: string }} */
-const settings = JSON.parse(localStorage.getItem(`UraniumSettings`)) || {};
-
 //#region dialog
 buttonSettings.addEventListener(`click`, (event) => {
   dialogSettings.showModal();
@@ -26,17 +23,20 @@ buttonCloseSettings.addEventListener(`click`, (event) => {
 //#region localStorage
 window.addEventListener(`beforeunload`, (event) => {
   if (inputSettingSaveText.checked) {
-    const settings = {
+    const saveSettings = {
       editorContent: textareaEditor.value,
     };
 
-    localStorage.setItem(`UraniumSettings`, JSON.stringify(settings));
+    localStorage.setItem(`UraniumSettings`, JSON.stringify(saveSettings));
   } else if (localStorage.length > 0) {
     localStorage.removeItem("UraniumSettings");
   }
 });
 
-if (`editorContent` in settings) {
+/** @type {{ editorContent: string }} */
+const settings = JSON.parse(localStorage.getItem(`UraniumSettings`)) || {};
+
+if (settings.editorContent) {
   inputSettingSaveText.checked = true;
   textareaEditor.value = settings.editorContent;
 }
